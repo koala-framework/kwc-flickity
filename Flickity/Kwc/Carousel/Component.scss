@@ -1,33 +1,7 @@
-@import "compass/utilities/general/clearfix";
-
 .kwcClass {
-    margin: auto;
-    position: relative;
-
-    .kwcBem__listWrapper {
-        @include pie-clearfix;
-        position: relative;
-    }
-    .kwcBem__imageWrapper {
-        @include pie-clearfix;
-        position: relative;
-    }
-    .kwfUp-owl-nav {
-        .kwfUp-owl-prev {
-            width: 39px;
-            position: absolute;
-            height: 100%;
-            top: 0;
-            left: 0;
-            text-indent: -9999px;
-        }
-        .kwfUp-owl-next {
-            width: 39px;
-            position: absolute;
-            top: 0;
-            right: 0;
-            height: 100%;
-            text-indent: -9999px;
-        }
+    &__listItem {
+        height: 100%;
+        width: 100%;
+        visibility: hidden;
     }
 }

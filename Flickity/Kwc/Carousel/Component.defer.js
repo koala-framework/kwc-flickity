@@ -1,16 +1,30 @@
+"use strict";
 var $ = require('jQuery');
 var onReady = require('kwf/on-ready');
+var flickity = require('flickity');
 
-onReady.onRender('.kwcClass', function(el, config) {
-    el.height(''); //remove maximum height as calculated in Component.js
-    if (Modernizr && Modernizr.touch) {
-        config.carouselConfig.smartSpeed = config.carouselConfig.touchSmartSpeed;
+onReady.onRender('.kwcClass', function(el) {
+    var config = el.data('config');
+    var elements = el.find('.kwcClass__listItem');
+    elements.first().css('visibility', 'visible');
+    if (config['lazyImages']) {
+        for(var i=0; i <= parseInt(config['lazyImages']); i++) {
+            if (i > parseInt(elements.length/2)) break;
+            elements.eq(i).css('visibility', 'visible');
+            elements.eq(elements.length - i).css('visibility', 'visible');
+        }
     }
-    if (config.carouselConfig.startRandom) {
-        config.carouselConfig['startPosition'] = Math.floor(Math.random() * config.countItems);
-        delete config.carouselConfig['startRandom'];
-    }
-    el.find('.kwcClass__listWrapper').owlCarousel(config.carouselConfig);
 
-    onReady.callOnContentReady(el, { action: 'render' });
+    var flkty = new flickity(el[0], config);
+
+    flkty.on( 'cellSelect', function() {
+        if ((flkty.selectedIndex + config['lazyImages']) <= (flkty.cells.length - 1) &&
+            elements.eq(flkty.selectedIndex + config['lazyImages']).css('visibility') != 'visible') {
+            elements.eq(flkty.selectedIndex + config['lazyImages']).css('visibility', 'visible');
+        } else if ((flkty.selectedIndex - config['lazyImages']) >= 0 &&
+            elements.eq(flkty.selectedIndex - config['lazyImages']).css('visibility') != 'visible') {
+            elements.eq(flkty.selectedIndex - config['lazyImages']).css('visibility', 'visible');
+        }
+        onReady.callOnContentReady(el, { action: 'show' });
+    });
 });

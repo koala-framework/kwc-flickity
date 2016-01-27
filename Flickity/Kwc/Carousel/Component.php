@@ -1,26 +1,17 @@
 <?php
-class Flickity_Kwc_Carousel_Component extends Kwc_Abstract_List_Component
+class Theme_Lightbox_Flickity_Component extends Kwc_List_Images_Component
 {
     public static function getSettings()
     {
         $ret = parent::getSettings();
-        $ret['componentName'] = trlKwfStatic('List Carousel');
-        $ret['componentCategory'] = 'media';
-        $ret['generators']['child']['component'] = 'Flickity_Kwc_Carousel_Image_Component';
+        $ret['componentName'] = trlStatic('Bilder Galerie');
+        $ret['componentCategory'] = 'special';
+        $ret['generators']['child']['component'] = 'Kwc_Basic_Image_Component';
 
-        $ret['carouselConfig'] = array(
-            'loop' => true,
-            'center' => true,
-            'items' => 2,
-            'nav' => true,
-            'dots' => false,
-            'margin' => 10,
-            'smartSpeed' => 1500,
-            'touchSmartSpeed' => 600,
-            'startRandom' => false,
-            'autoplay' => false,
-            'autoplayTimeout' => 7000,
-            'responsiveRefreshRate' => 90
+        $ret['generators']['model'] = array(
+            'class' => 'Kwf_Component_Generator_Box_Static',
+            'component' => 'Kwc_Basic_Empty_Component',
+            'inherit' => true
         );
         return $ret;
     }
@@ -28,18 +19,20 @@ class Flickity_Kwc_Carousel_Component extends Kwc_Abstract_List_Component
     public function getTemplateVars()
     {
         $ret = parent::getTemplateVars();
+
+        //_getBemClass returns kwfUp- but we don't replace that correclty inside this json config, so so it now
+        $cellClass = $this->_getBemClass('listItem'),
+        $up = Kwf_Config::getValue('application.uniquePrefix');
+        if ($up) $up = $up.'-';
+        $cellClass = str_replace('kwfUp-', $up, $cellClass);
+
         $ret['config'] = array(
-            'carouselConfig' => $this->_getSetting('carouselConfig'),
-            'countItems' => count($ret['listItems']),
-            'contentWidth' => $this->getContentWidth()
+            "cellAlign" => "center",
+            "contain" => false,
+            "wrapAround" => true,
+            "cellSelector" => '.'.$cellClass,
+            "lazyImages" => 2
         );
-        if (count($ret['listItems']) > 1) {
-            $ret['listClass'] = $this->_getBemClass('listWrapper');
-            $ret['listClass'] .= ' kwfUp-owl-carousel';
-        } else {
-            $ret['listClass'] = $this->_getBemClass('imageWrapper');
-        }
         return $ret;
     }
 }
-
