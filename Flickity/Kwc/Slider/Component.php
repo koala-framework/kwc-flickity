@@ -1,5 +1,5 @@
 <?php
-class Theme_Lightbox_Flickity_Component extends Kwc_List_Images_Component
+class Flickity_Kwc_Slider_Component extends Kwc_List_Images_Component
 {
     public static function getSettings()
     {
