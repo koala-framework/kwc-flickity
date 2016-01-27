@@ -1,0 +1,22 @@
+{
+    "name": "koala-framework/kwc-flickity",
+    "description": "Flickity Integration for Koala Framework",
+    "homepage": "http://www.koala-framework.org/",
+    "license": "BSD-2-Clause",
+    "type": "library",
+    "require": {
+        "koala-framework/koala-framework": "~4.0"
+    },
+    "extra": {
+        "require-bower": {
+            "flickity": "1.1.2"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-0": {
+            "Owlcarousel_": ""
+        }
+    }
+}
