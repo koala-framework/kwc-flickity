@@ -21,7 +21,7 @@ class Flickity_Kwc_Slider_Component extends Kwc_List_Images_Component
         $ret = parent::getTemplateVars();
 
         //_getBemClass returns kwfUp- but we don't replace that correclty inside this json config, so so it now
-        $cellClass = $this->_getBemClass('listItem'),
+        $cellClass = $this->_getBemClass('listItem');
         $up = Kwf_Config::getValue('application.uniquePrefix');
         if ($up) $up = $up.'-';
         $cellClass = str_replace('kwfUp-', $up, $cellClass);
