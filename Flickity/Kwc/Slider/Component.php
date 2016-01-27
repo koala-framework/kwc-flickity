@@ -6,7 +6,7 @@ class Flickity_Kwc_Slider_Component extends Kwc_List_Images_Component
         $ret = parent::getSettings();
         $ret['componentName'] = trlStatic('Bilder Galerie');
         $ret['componentCategory'] = 'special';
-        $ret['generators']['child']['component'] = 'Kwc_Basic_Image_Component';
+        $ret['generators']['child']['component'] = 'Flickity_Kwc_Slider_Image_Component';
 
         $ret['generators']['model'] = array(
             'class' => 'Kwf_Component_Generator_Box_Static',
