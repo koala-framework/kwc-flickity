@@ -1,3 +1,4 @@
+{% block slideContainer %}
 <div class="{{ rootElementClass }}" data-config="{{ config|json_encode }}">
     <div class="{{ listClass }}">
         {% for item in listItems %}
@@ -7,3 +8,4 @@
         {% endfor %}
     </div>
 </div>
+{% endblock %}
