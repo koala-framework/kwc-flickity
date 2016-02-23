@@ -16,6 +16,7 @@ onReady.onRender('.kwcClass', function(el) {
     }
 
     var flkty = new flickity(el[0], config);
+    el.data('flkty', flkty);
 
     flkty.on( 'cellSelect', function() {
         if ((flkty.selectedIndex + config['lazyImages']) <= (flkty.cells.length - 1) &&
