@@ -7,12 +7,14 @@ onReady.onRender('.kwcClass', function(el) {
     var config = el.data('config');
     var elements = el.find('.kwcClass__listItem');
     elements.first().css('visibility', 'visible');
-    if (config['lazyImages']) {
-        for(var i=0; i <= parseInt(config['lazyImages']); i++) {
+    if (config['lazyImages'] > 0) {
+        for (var i=0; i <= parseInt(config['lazyImages']); i++) {
             if (i > parseInt(elements.length/2)) break;
             elements.eq(i).css('visibility', 'visible');
             elements.eq(elements.length - i).css('visibility', 'visible');
         }
+    } else {
+        elements.css('visibility', 'visible');
     }
 
     var flkty = new flickity(el[0], config);
