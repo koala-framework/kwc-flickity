@@ -30,4 +30,4 @@ onReady.onRender('.kwcClass', function(el) {
         }
         onReady.callOnContentReady(el, { action: 'show' });
     });
-});
+}, { checkVisibility: true });
