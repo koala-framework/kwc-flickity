@@ -6,6 +6,7 @@ var flickity = require('flickity');
 onReady.onRender('.kwcClass', function(el) {
     var config = el.data('config');
     var elements = el.find('.kwcBem__listItem');
+    if (elements.length <= 1) return;
     elements.first().css('visibility', 'visible');
     if (config['lazyImages'] > 0) {
         for (var i=0; i <= parseInt(config['lazyImages']); i++) {
