@@ -1,6 +1,14 @@
 .kwcClass {
-    &__listItem {
+    .kwcBem__listItem {
         width: 100%;
         visibility: hidden;
+        position: absolute;
+        top: 0;
+
+        &:first-child {
+            position: static;
+            visibility: visible;
+            top: auto;
+        }
     }
 }
