@@ -1,13 +1,11 @@
 {% block slideContainer %}
 <div class="{{ rootElementClass }}" data-config="{{ config|json_encode }}">
     {% block beforeList %}{% endblock %}
-    <div class="{{ listClass }}">
         {% for item in listItems %}
         <div class="{{ item.class }}">
             {{ renderer.component(item.data) }}
         </div>
         {% endfor %}
-    </div>
     {% block afterList %}{% endblock %}
 </div>
 {% endblock %}
