@@ -9,7 +9,7 @@
     },
     "extra": {
         "require-bower": {
-            "flickity": "1.1.2"
+            "flickity": "1.2.1"
         }
     },
     "minimum-stability": "dev",
