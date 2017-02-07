@@ -7,12 +7,6 @@ class Flickity_Kwc_Slider_Component extends Kwc_Abstract_List_Component
         $ret['componentName'] = trlStatic('Bilder Galerie');
         $ret['componentCategory'] = 'special';
         $ret['generators']['child']['component'] = 'Flickity_Kwc_Slider_Image_Component';
-
-        $ret['generators']['model'] = array(
-            'class' => 'Kwf_Component_Generator_Box_Static',
-            'component' => 'Kwc_Basic_Empty_Component',
-            'inherit' => true
-        );
         return $ret;
     }
 
