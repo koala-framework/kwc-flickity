@@ -1,6 +1,6 @@
 "use strict";
 var $ = require('jQuery');
-var onReady = require('kwf/on-ready');
+var onReady = require('kwf/commonjs/on-ready');
 var flickity = require('flickity');
 
 onReady.onRender('.kwcClass', function(el) {
