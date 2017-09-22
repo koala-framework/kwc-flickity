@@ -2,6 +2,7 @@
 var $ = require('jQuery');
 var onReady = require('kwf/commonjs/on-ready');
 var flickity = require('flickity');
+require('flickity/css/flickity.css');
 
 onReady.onRender('.kwcClass', function(el) {
     var config = el.data('config');
