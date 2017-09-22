@@ -8,9 +8,10 @@
         "koala-framework/koala-framework": "~5.0"
     },
     "extra": {
-        "require-bower": {
+        "require-npm": {
             "flickity": "^2.0.5"
-        }
+        },
+        "expose-npm-packages": true
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
