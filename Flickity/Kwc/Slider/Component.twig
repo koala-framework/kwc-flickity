@@ -2,9 +2,11 @@
 <div class="{{ rootElementClass }}" data-config="{{ config|json_encode }}">
     {% block beforeList %}{% endblock %}
         {% for item in listItems %}
+        {{ item.preHtml|raw }}
         <div class="{{ item.class }}">
             {{ renderer.component(item.data) }}
         </div>
+        {{ item.postHtml|raw }}
         {% endfor %}
     {% block afterList %}{% endblock %}
 </div>
