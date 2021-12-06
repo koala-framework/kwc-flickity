@@ -28,6 +28,13 @@ onReady.onRender('.kwcClass', function(el) {
     var flkty = new flickity(el[0], config);
     el.data('flkty', flkty);
 
+    flkty.on("dragStart", function() {
+        $("html").addClass("kwfUp-flickityDragActive");
+    });
+    flkty.on("dragEnd", function() {
+        $("html").removeClass("kwfUp-flickityDragActive");
+    });
+
     flkty.on( 'cellSelect', function() {
         if ((flkty.selectedIndex + config['lazyImages']) <= (flkty.cells.length - 1) &&
             elements.eq(flkty.selectedIndex + config['lazyImages']).css('visibility') != 'visible') {
